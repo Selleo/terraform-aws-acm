@@ -35,3 +35,4 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_arn"></a> [arn](#output\_arn) | Certifcate ARN |
+| <a name="output_zone_id"></a> [zone\_id](#output\_zone\_id) | Route53 zone ID |
