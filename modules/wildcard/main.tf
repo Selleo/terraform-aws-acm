@@ -19,6 +19,7 @@ locals {
   tags = merge(module.info.tags, {
     "terraform.module"    = "Selleo/terraform-aws-acm"
     "terraform.submodule" = "wildcard"
+    "props.external"      = tostring(var.external_dns_provider)
   })
 }
 
