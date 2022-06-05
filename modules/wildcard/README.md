@@ -1,16 +1,21 @@
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 4.0 |
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_info"></a> [info](#module\_info) | Selleo/context/null | 0.3.0 |
 
 ## Resources
 
@@ -24,15 +29,18 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_allow_overwrite"></a> [allow\_overwrite](#input\_allow\_overwrite) | Allow to overwrite Route53 records | `bool` | `true` | no |
+| <a name="input_allow_overwrite"></a> [allow\_overwrite](#input\_allow\_overwrite) | Allow to overwrite Route53 records. | `bool` | `true` | no |
+| <a name="input_context"></a> [context](#input\_context) | Project context. | <pre>object({<br>    namespace = string<br>    stage     = string<br>    name      = string<br>  })</pre> | n/a | yes |
 | <a name="input_domain"></a> [domain](#input\_domain) | Domain for the certificate | `string` | n/a | yes |
-| <a name="input_san"></a> [san](#input\_san) | Subject alternative names (conflicts with: `wildcard`) | `list(string)` | `[]` | no |
-| <a name="input_ttl"></a> [ttl](#input\_ttl) | Default TTL for Route53 record validation | `number` | `60` | no |
-| <a name="input_wildcard"></a> [wildcard](#input\_wildcard) | Generates wildcard certificate (conflicts with: `san`) | `bool` | `true` | no |
+| <a name="input_external_dns_provider"></a> [external\_dns\_provider](#input\_external\_dns\_provider) | When external DNS provider is used, validation records must be configured manually.<br>Otherwise this happens automatically with Route53. | `bool` | `false` | no |
+| <a name="input_san"></a> [san](#input\_san) | Subject alternative names (conflicts with: `wildcard`). | `list(string)` | `[]` | no |
+| <a name="input_ttl"></a> [ttl](#input\_ttl) | Default TTL for Route53 record validation. | `number` | `60` | no |
+| <a name="input_wildcard"></a> [wildcard](#input\_wildcard) | Generates wildcard certificate (conflicts with: `san`). | `bool` | `true` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_arn"></a> [arn](#output\_arn) | Certifcate ARN |
+| <a name="output_validation_records"></a> [validation\_records](#output\_validation\_records) | Map of DNS records used for certificate validation. |
 | <a name="output_zone_id"></a> [zone\_id](#output\_zone\_id) | Route53 zone ID |
