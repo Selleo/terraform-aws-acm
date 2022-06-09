@@ -2,16 +2,9 @@
 
 Module for managing TLS certificates.
 
-## Maintainers
+<!-- BEGIN_TF_DOCS -->
 
-* Bartłomiej Wójtowicz ([@qbart](https://github.com/qbart))
-
-## Development
-
-Generate docs:
-```
-terraform-docs markdown ./modules/wildcard > ./modules/wildcard/README.md
-```
+<!-- END_TF_DOCS -->
 
 ## LICENSE
 
