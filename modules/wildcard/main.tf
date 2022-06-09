@@ -1,5 +1,5 @@
 data "aws_route53_zone" "this" {
-  count = var.external_dns_provider ? 0 : 1
+  count = var.validate ? 1 : 0
 
   name = var.domain
 }
@@ -14,12 +14,11 @@ locals {
     }
   }
 
-  validation_records = var.external_dns_provider ? {} : local.dvo_records
+  validation_records = var.validate ? local.dvo_records : {}
 
   tags = merge(module.info.tags, {
     "terraform.module"    = "Selleo/terraform-aws-acm"
     "terraform.submodule" = "wildcard"
-    "props.external"      = tostring(var.external_dns_provider)
   })
 }
 

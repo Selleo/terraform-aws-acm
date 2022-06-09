@@ -15,14 +15,14 @@ variable "domain" {
 
 # optional
 
-variable "external_dns_provider" {
+variable "validate" {
   description = <<-EOS
-    When external DNS provider is used, validation records must be configured manually.
-    Otherwise this happens automatically with Route53.
+    Auto adds CNAME entries for validation in Route53.
+    When external DNS provider is used this must be set to `false`.
   EOS
 
   type    = bool
-  default = false
+  default = true
 }
 
 variable "san" {

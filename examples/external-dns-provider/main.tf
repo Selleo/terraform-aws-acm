@@ -10,9 +10,9 @@ module "info" {
 module "cert" {
   source = "../../modules/wildcard"
 
-  domain                = "hetzner.example.selleo.com"
-  context               = module.info.context
-  external_dns_provider = true
+  domain   = "hetzner.example.selleo.com"
+  context  = module.info.context
+  validate = false
 }
 
 output "records" {
