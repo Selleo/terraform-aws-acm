@@ -48,3 +48,9 @@ variable "allow_overwrite" {
   type        = bool
   default     = true
 }
+
+variable "validation_zone" {
+  description = "Zone used for validation. If empty defaults to domain."
+  type        = string
+  default     = ""
+}

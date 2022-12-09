@@ -1,9 +1,3 @@
-data "aws_route53_zone" "this" {
-  count = var.validate ? 1 : 0
-
-  name = var.domain
-}
-
 locals {
   default_san = ["*.${var.domain}"]
   dvo_records = {
@@ -21,6 +15,13 @@ locals {
     "terraform.submodule" = "wildcard"
   })
 }
+
+data "aws_route53_zone" "this" {
+  count = var.validate ? 1 : 0
+
+  name = var.validation_zone == "" ? var.domain : var.validation_zone
+}
+
 
 module "info" {
   source  = "Selleo/context/null"

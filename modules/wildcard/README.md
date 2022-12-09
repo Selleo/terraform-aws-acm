@@ -1,4 +1,3 @@
-<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -36,6 +35,7 @@
 | <a name="input_san"></a> [san](#input\_san) | Subject alternative names (conflicts with: `wildcard`). | `list(string)` | `[]` | no |
 | <a name="input_ttl"></a> [ttl](#input\_ttl) | Default TTL for Route53 record validation. | `number` | `60` | no |
 | <a name="input_validate"></a> [validate](#input\_validate) | Auto adds CNAME entries for validation in Route53.<br>When external DNS provider is used this must be set to `false`. | `bool` | `true` | no |
+| <a name="input_validation_zone"></a> [validation\_zone](#input\_validation\_zone) | Zone used for validation. If empty defaults to domain. | `string` | `""` | no |
 | <a name="input_wildcard"></a> [wildcard](#input\_wildcard) | Generates wildcard certificate (conflicts with: `san`). | `bool` | `true` | no |
 
 ## Outputs
@@ -45,4 +45,3 @@
 | <a name="output_arn"></a> [arn](#output\_arn) | Certifcate ARN |
 | <a name="output_validation_records"></a> [validation\_records](#output\_validation\_records) | Map of DNS records used for certificate validation. |
 | <a name="output_zone_id"></a> [zone\_id](#output\_zone\_id) | Route53 zone ID |
-<!-- END_TF_DOCS -->
